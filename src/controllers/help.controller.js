@@ -6,10 +6,11 @@ const Help = require('../models/help.model');
 const router = express.Router();
 
 
+
 router.post('',
 
     body("id").isNumeric().withMessage("Id is not a number").bail().custom(async value => {
-        const help = await Help.findOne({id: value});
+        const user = await User.findOne({id: value});
           if (user) {
             throw new Error("ID already exists");
           }
@@ -41,14 +42,16 @@ router.post('',
     }
 })
 
-
+//will ahve to add authorise/authenticate later
 router.get('',async (req,res) => {
     try{
-        
+        let query;
+        if(req.query.q){//when we search we'll have to use /help?q=""
+            query = req.query.q;
+        }
+        console.log('query:', query.toLowerCase());
         const helps = await Help.find().lean().exec();
-
-        
-      /*  let newArray = helps.map(el => el.subject.split(' '));
+        let newArray = helps.map(el => el.subject.split(' '));
         let indexes = [];
         for(let i=0; i<newArray.length; i++){
             for(let j=0; j<newArray[i].length; j++){
@@ -66,11 +69,11 @@ router.get('',async (req,res) => {
                 }
             }
         }
-        console.log(finalArray)*/
-        return res.send(helps);
+        console.log(finalArray)
+        res.send(helps);
     }
     catch(err){
-        return res.status(500).send(err.message);
+        res.status(500).send(err.message);
     }
 })
 
@@ -99,7 +102,5 @@ router.delete('/:id',async (req,res)=>{
         return res.status(500).send(err.message);
     }
 })
-
-
 
 module.exports = router;
