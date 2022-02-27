@@ -45,32 +45,11 @@ router.post('',
 //will ahve to add authorise/authenticate later
 router.get('',async (req,res) => {
     try{
-        let query;
-        if(req.query.q){//when we search we'll have to use /help?q=""
-            query = req.query.q;
-        }
-        console.log('query:', query.toLowerCase());
-        const helps = await Help.find().lean().exec();
-        let newArray = helps.map(el => el.subject.split(' '));
-        let indexes = [];
-        for(let i=0; i<newArray.length; i++){
-            for(let j=0; j<newArray[i].length; j++){
-                if(newArray[i][j] === query){
-                    indexes.push(i)
-                }
-            }
-        }
-        console.log('indexes:', indexes)
-        let finalArray=[];
-        for(let k=0 ; k<indexes.length; k++){
-            for(let l=0; l<helps.length; l++){
-                if(indexes[k] === l){
-                    finalArray.push(helps[l])
-                }
-            }
-        }
-        console.log(finalArray)
-        res.send(helps);
+        let query = req.query.q;
+       const help = await Help.find(
+        { "subject": { "$regex": query, "$options": "i" } }).lean().exec();
+        //console.log(help)
+            res.send(help)
     }
     catch(err){
         res.status(500).send(err.message);
