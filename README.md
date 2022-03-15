@@ -38,13 +38,32 @@ We have tried to clone the website using HTML5, CSS, Javascript DOM and Advanced
 MongoDB database
 
 ## Tech Stack
-1.Html
-2.CSS
-3.JavaScript DOM
-4.Advanced JavaScript
-5.MongoDB
-6.Node.JS
-7.Express.JS
+1.Html<br/>
+2.CSS<br/>
+3.JavaScript DOM<br/>
+4.Advanced JavaScript<br/>
+5.MongoDB<br/>
+6.Node.JS<br/>
+7.Express.JS<br/>
 
+## Some Snapshots
+<p>Landing page</p>
+<img src="https://cdn-images-1.medium.com/max/600/1*qVMPy6kSqxLJ708FeM1RPA.png"/>
+
+<p>Browse page</p>
+<img src="https://cdn-images-1.medium.com/max/1200/1*nXluTgGs70cl1_cmHpPrpA.png"/>
+
+<p>Game Description page</p>
+<img src="https://cdn-images-1.medium.com/max/1200/1*8_o877l2YOrzPJmPfFVEcA.png"/>
+
+<p>Wishlist & Cart page</p>
+<img src="https://cdn-images-1.medium.com/max/1200/1*wTWKJucoLntOTjYohDmJlg.png"/>
+<img src="https://cdn-images-1.medium.com/max/1200/1*SaNyxAPkcyZ2HWDe90L7rA.png"/>
+
+<p>News page</p>
+<img src="https://cdn-images-1.medium.com/max/900/1*W9xnLAudajJLLC6hFsSZRA.png"/>
+
+<p>Help page</p>
+<img src="https://cdn-images-1.medium.com/max/600/1*2QCv_5z2RQAN51texK-0cg.png"/><br/>
 
 ## Please do check out our Cloned Epic Games Website !
